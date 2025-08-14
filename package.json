@@ -1,0 +1,12 @@
+{
+  "name": "bckend",
+  "version": "1.0.0",
+  "description": "Starting Backend journey",
+  "license": "ISC",
+  "author": "Kunal Khandelwal",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
