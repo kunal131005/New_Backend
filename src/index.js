@@ -8,10 +8,22 @@ import { DB_NAME } from './constants.js';
 import connectDB from './db/index.js';
 
 dotenv.config({
-    oath:'./env'
+    oath: './env'
 })
 
 connectDB()
+    .then(() => {
+        app.on("error", (error) => {
+            console.log("Error", error);
+            throw error;
+        })
+        // app.listen se pahle error handling karne ke liye app.on ka use karna hota hai
+        app.listen(process.env.PORT || 8000, () => {
+            console.log(`Server is running at port ${process.env.PORT}`)
+        })
+    }).catch((err) => {
+        console.log("MONGO db connection failed !!!!", err)
+    })
 
 // 1st approach for connecting a DB
 // 2nd approach is in DB folder for better production development
